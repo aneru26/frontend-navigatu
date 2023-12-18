@@ -1,79 +1,62 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
-  <head>
-  	<title>CCIS Faculty File Management System</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<head>
+	<title>Navigatu Booking System</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-	
 	<link rel="stylesheet" href="public/frontend/css/style.css">
-    <script type="module" src="js/auth/login.js"></script>
-	<style>
+	<script type="module" src="js/auth/login.js"></script>
+	
+</head>
 
-		
-		/* Add this style to your existing styles or update the existing one */
-.heading-section {
-    font-family: 'Montserrat', sans-serif;
-}
-
-/* You might want to update other styles using Lato as well */
-
-	</style>
-
-	</head>
-	<body class="img js-fullheight hold-transition login-page" style="background-image: url(public/frontend/images/bg.jpg);">
+<body class="img js-fullheight hold-transition login-page"
+	style="background-image: url(public/frontend/images/navig.jpg);">
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">CCIS Faculty File Management System</h2>
+					<h2 class="heading-section">Navigatu Booking System</h2>
 				</div>
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
-					<div class="login-wrap p-0">
+					<div class="login-wrap">
+						<h2 class="heading-section">Sign In</h2>
+						<div id="success-message" class="alert alert-success" style="display: none;"></div>
+						<div id="error-message" class="alert alert-danger" style="display: none;"></div>
 
-       
-                        <div id="success-message" class="alert alert-success" style="display: none;"></div>
-                        <div id="error-message" class="alert alert-danger" style="display: none;"></div>
+						<form id="form_login">
+							<div class="form-group">
+								<input type="email" class="form-control" name="email" placeholder="Email" required>
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" name="password" placeholder="Password"
+									required>
+							</div>
+							<div class="form-group">
+								<button type="submit"
+									class="form-control btn btn-primary submit px-3 d-flex align-items-center justify-content-center">Sign
+									In</button>
+							</div>
+						</form>
 
-            
-    
-		      	<form id="form_login">
-					
-		      		<div class="form-group">
-		      			<input type="email" class="form-control" name="email" placeholder="Email" required>
-		      		</div>
-	            <div class="form-group">
-	              <input type="password" class="form-control" name="password" placeholder="Password" required>
-	             
-	            </div>
-	            <div class="form-group">
-	            	<button type="submit" class="form-control btn btn-primary submit px-3 d-flex align-items-center justify-content-center">Sign In</button>
-	            </div>
-	           
-	          </form>
-            <div class="form-group d-md-flex">
-             
-              <div class="w-100 text-md-right">
-                <a href="register.html" style="color: #fff">Register</a>
-              </div>
-              
-            </div>
-		      </div>
+						<div class="form-group d-md-flex">
+							<div class="w-100 text-md-right">
+								<a href="register.html" style="color: #fff">Register</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-    <script src="public/frontend/js/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="public/frontend/js/main.js"></script>
-    
+	<script src="public/frontend/js/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="public/frontend/js/main.js"></script>
 </body>
-</html>
 
-
+</html>s
