@@ -1,267 +1,253 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Navigatu Booking System</title>
-  <!-- Include jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <!-- Include DataTables CSS and JS -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-  <link rel="stylesheet" href="public/frontend/css/bootstrap.min.css">
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
+  <!-- Modern Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Updated DataTables CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.5/r-2.2.9/datatables.min.css"/>
+  
+  <!-- Optimized CSS Loading -->
+  <link rel="stylesheet" href="public/frontend/css/bootstrap.min.css">
   <link rel="stylesheet" href="public/plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
   <link rel="stylesheet" href="public/dist/css/adminlte.min.css">
 
-  <script type="module" src="js/dashboard/appointment.js"></script>
-  
+  <style>
+    :root {
+      --primary-color: #4361ee;
+      --hover-color: #3f37c9;
+      --border-radius: 8px;
+    }
 
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8f9fc;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-image {
+      max-height: 38px;
+      width: auto;
+      margin-right: 12px;
+    }
+
+    .main-header.navbar {
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      padding: 0.5rem 1rem;
+    }
+
+    .content-header {
+      padding: 1.5rem 0 0;
+    }
+
+    .card {
+      border: none;
+      box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05);
+      border-radius: var(--border-radius);
+      margin-bottom: 2rem;
+    }
+
+    .card-header {
+      background: white;
+      border-bottom: 1px solid #e3e6f0;
+      padding: 1.5rem;
+    }
+
+    .table thead th {
+      border-bottom: 2px solid #e3e6f0;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      padding: 0.5rem 1.5rem;
+      border-radius: 6px;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--hover-color);
+      border-color: var(--hover-color);
+    }
+
+    .modal-content {
+      border-radius: var(--border-radius);
+    }
+
+    @media (max-width: 768px) {
+      .navbar-brand span {
+        font-size: 1.1rem;
+      }
+
+      .card-header h3 {
+        font-size: 1.25rem;
+      }
+
+      .table {
+        font-size: 0.875rem;
+      }
+    }
+  </style>
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
 
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
-    <div class="container">
-      <a href="index.html" class="navbar-brand">
-        <img src="public/dist/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Navigatu Booking System</span>
+  <!-- Updated Navbar -->
+  <nav class="main-header navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid px-lg-4">
+      <a href="index.html" class="navbar-brand d-flex align-items-center">
+        <img src="public/dist/img/logo.png" alt="Navigatu Logo" class="brand-image">
+        <span class="brand-text">Navigatu Booking</span>
       </a>
 
-      <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a href="dashboard.html" class="nav-link">Dashboard</a>
           </li>
-          <li id="nav_admin_pages">
-
-          </li>
           <li class="nav-item">
-            <a href="appointment.html" class="nav-link">Appointment</a>
+            <a href="appointment.html" class="nav-link active">Appointment</a>
           </li>
-         
+          <li id="nav_admin_pages" class="nav-item"></li>
         </ul>
 
-       
+        <ul class="navbar-nav ml-3">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+              <i class="fas fa-user-circle fa-lg"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#" id="btn_logout">Logout</a>
+            </div>
+          </li>
+        </ul>
       </div>
-
-      <!-- Right navbar links -->
-      <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-        
-        <li class="nav-item dropdown">
-          <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
-            <i class="fas fa-user"></i>
-          </a>
-          <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-            <li><a href="#" class="dropdown-item" id="btn_logout">Logout </a></li>
-          
-
-          
-          </ul>
-        </li>
-      </ul>
     </div>
   </nav>
-  <!-- /.navbar -->
 
-
-  
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Appointment List</h1>
-          </div>
-
-          <div class="col-sm-6" style="text-align:right;">
-            <button id="show_modal" class="btn btn-primary" data-toggle="modal" data-target="#addAppointmentModal">Add New Appointment</button>
-          </div>
-          
+  <!-- Content Wrapper -->
+  <div class="content-wrapper">
+    <div class="container-fluid px-lg-4">
+      <section class="content-header">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h1 class="mb-0">Appointment List</h1>
+          <button id="show_modal" class="btn btn-primary">
+            <i class="fas fa-plus mr-2"></i>New Appointment
+          </button>
         </div>
-      </div><!-- /.container-fluid -->
-    </section>
+      </section>
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        
-            
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Appointment List </h3> 
-
-                <div id="success-message" class="alert alert-success" style="display: none;"></div>
-                  <div id="error-message" class="alert alert-danger" style="display: none;"></div>
-    
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive" style="overflow:auto; ">
-                <table class="table table-striped" id="appointmentTable">
-                  <thead>
-                    <tr>
-                  
-                      <th >Appointment No.</th>
-                      <th>Area</th>
-                      <th>Event Date</th>
-                      <th>Start Time</th>
-                      <th>End Time</th>
-                      <th >Created Date</th>
-                      <th >Action</th>
-                    </tr>
-                  </thead>
-                  <tbody id="get_data">
-           
-                      
-                  </tbody>
-                </table>
-                <div style="padding: 10px; float:right;">
-                
-              </div>
-              </div>
-              <!-- /.card-body -->
+      <section class="content">
+        <div class="card">
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-hover" id="appointmentTable" style="width:100%">
+                <thead class="bg-light">
+                  <tr>
+                    <th>Appointment No.</th>
+                    <th>Area</th>
+                    <th>Event Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Created Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="get_data"></tbody>
+              </table>
             </div>
-            <!-- /.card -->
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
-        
-  </div>
-  <!-- /.content-wrapper -->
-    
-
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-
-    <!-- Default to the left -->
-    <strong>Copyright &copy; <span id="current-year"></span> NavigatuBookingSystem</strong> All rights reserved.
-</footer>
-
-
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="public/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="public/dist/js/adminlte.min.js"></script>
-<script>
-    // Get the current year
-    const currentYear = new Date().getFullYear();
-
-    // Update the content of the span element with the current year
-    document.getElementById('current-year').innerText = currentYear;
-</script>
-<script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-<script>
-  // Your existing JavaScript code here
-
-  // Call getDatas function to fetch data and populate the table
-  getDatas();
-
-  // Initialize DataTable
-  $(document).ready(function() {
-    $('#appointmentTable').DataTable();
-  });
-</script>
-
-<div class="modal fade" id="addAppointmentModal" tabindex="-1" role="dialog" aria-labelledby="addAppointmentModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <div class="container-fluid">
-            <div class="row mb-2">
-              <div class="col-sm-6">
-                <h1 id="Appointment_title">Add New Appointment</h1>
-              </div>
-            </div>
-          </div><!-- /.container-fluid -->
-        </section>
-    
-        <!-- Main content -->
-        <section class="content">
-          <div class="container-fluid">
-            <div class="row">
-              <!-- left column -->
-              <div class="col-md-12">
-               
-                <div class="card card-primary">
-                  
-                  <div id="success-message" class="alert alert-success" style="display: none;"></div>
-                  <div id="error-message" class="alert alert-danger" style="display: none;"></div>
-    
-                  <form id="appointment_form">
-                
-                    <div class="card-body">
-                   <div class="form-group col-md-12">
-                        <label for="area">Area</label>
-                        <select class="form-control" name="area" id="area" required>
-                          <option value="">Select Area</option> 
-                          <option value="conference room">Conference Room</option>
-                            <option value="navigatu hall">Navigatu Hall</option>
-                        </select>
-                    </div>
-    
-                      <div class="form-group col-md-12">
-                        <label >Start Time <span style="color: red;">*</span> </label>
-                        <input type="time" class="form-control"  name="start_time" id="start_time" placeholder="Start Time">
-                        
-                      </div>
-    
-                      <div class="form-group col-md-12">
-                        <label>End Time</label>
-                        <input type="time" class="form-control" name="end_time" id="end_time"  required placeholder="End Time">
-                        
-                      </div>
-                      <div class="form-group col-md-12">
-                        <label>Event Date</label>
-                        <input type="date" class="form-control" name="event_date" id="event_date" placeholder="Event Date">
-                      </div>
-                    
-                    </div>
-                    <!-- /.card-body -->
-    
-                    <div class="card-footer col-md-12" >
-                      <button type="submit" class="btn btn-primary d-flex align-items-center">Submit</button>
-                    </div>
-                  </form>
-                 </div>
-             
-              </div>
-              
-            </div>
-            
+      </section>
     </div>
-            <!-- /.row -->
-            
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer bg-white border-top">
+    <div class="container-fluid px-lg-4">
+      <div class="py-3 text-center">
+        <strong>Copyright &copy; <span id="current-year"></span> Navigatu</strong> All rights reserved.
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addAppointmentModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add New Appointment</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="appointment_form">
+          <div class="form-group">
+            <label>Area</label>
+            <select class="form-control" name="area" required>
+              <option value="">Select Area</option>
+              <option value="conference room">Conference Room</option>
+              <option value="navigatu hall">Navigatu Hall</option>
+            </select>
+          </div>
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <label>Start Time</label>
+              <input type="time" class="form-control" name="start_time" required>
+            </div>
+            <div class="col-md-6 form-group">
+              <label>End Time</label>
+              <input type="time" class="form-control" name="end_time" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Event Date</label>
+            <input type="date" class="form-control" name="event_date" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Scripts -->
+<script src="public/plugins/jquery/jquery.min.js"></script>
+<script src="public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="public/dist/js/adminlte.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.5/r-2.2.9/datatables.min.js"></script>
+
+<script>
+  // Initialize DataTable with responsive settings
+  $(document).ready(function() {
+    $('#appointmentTable').DataTable({
+      responsive: true,
+      autoWidth: false,
+      language: {
+        paginate: {
+          previous: '<i class="fas fa-chevron-left"></i>',
+          next: '<i class="fas fa-chevron-right"></i>'
+        }
+      }
+    });
+  });
+
+  // Update current year
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
